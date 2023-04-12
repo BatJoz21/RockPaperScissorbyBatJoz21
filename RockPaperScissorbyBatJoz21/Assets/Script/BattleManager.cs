@@ -5,16 +5,17 @@ using UnityEngine;
 public class BattleManager : MonoBehaviour
 {
     [SerializeField] private battleState state;
+    [SerializeField] private Player player1;
+    [SerializeField] private Player player2;
 
+
+    //Temporary
     [SerializeField] private bool isPlayer1DoneSelect;
     [SerializeField] private bool isPlayer2DoneSelect;
     [SerializeField] private bool isAttackDone;
     [SerializeField] private bool isDamagingDone;
     [SerializeField] private bool isReturningDone;
     [SerializeField] private bool isPlayerEliminated;
-
-    //[SerializeField] Player player1;
-    //[SerializeField] Player player2;
 
     enum battleState
     {
@@ -37,24 +38,31 @@ public class BattleManager : MonoBehaviour
         switch (state)
         {
             case battleState.Preparation:
-                // Player prepares
-                // Set player 1 play 1st
+                player1.Prepare();
+                player2.Prepare();
+
+                player1.SetPlay(true);
+                player2.SetPlay(false);
                 state = battleState.Player1Select;
                 break;
             case battleState.Player1Select:
-                if(isPlayer1DoneSelect)
+                if (player1.SelectedCharacter != null)
                 {
+                    player1.SetPlay(false);
+                    player2.SetPlay(true);
                     state = battleState.Player2Select;
                 }
                 break;
             case battleState.Player2Select:
-                if(isPlayer2DoneSelect)
+                if(player2.SelectedCharacter != null)
                 {
+                    player1.Attack();
+                    player2.Attack();
                     state = battleState.Attacking;
                 }
                 break;
             case battleState.Attacking:
-                if(isAttackDone)
+                if(player1.IsAttacking() == false && player2.IsAttacking() == false)
                 {
                     //calculate who took damage
                     //start damage anim

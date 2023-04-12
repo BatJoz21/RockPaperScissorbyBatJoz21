@@ -20,6 +20,8 @@ public class Character : MonoBehaviour
     [SerializeField] TMP_Text hpText;
     [SerializeField] Button button;
 
+    public Button Button { get => button; }
+
     void Start()
     {
         overHeadText.text = playerName;
