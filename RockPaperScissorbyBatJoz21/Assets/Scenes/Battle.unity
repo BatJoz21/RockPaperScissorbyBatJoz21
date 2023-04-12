@@ -588,8 +588,8 @@ MonoBehaviour:
   playerType: 2
   currentHp: 100
   maxHp: 100
-  attack: 20
-  defend: 15
+  attackPower: 40
+  defend: 12
   overHeadText: {fileID: 2040901635}
   avatar: {fileID: 1007222204}
   nameText: {fileID: 1221285090}
@@ -2057,7 +2057,7 @@ MonoBehaviour:
   playerType: 1
   currentHp: 100
   maxHp: 100
-  attack: 15
+  attackPower: 36
   defend: 15
   overHeadText: {fileID: 192547915}
   avatar: {fileID: 1719790077}
@@ -2168,7 +2168,7 @@ MonoBehaviour:
   playerType: 0
   currentHp: 100
   maxHp: 100
-  attack: 15
+  attackPower: 30
   defend: 20
   overHeadText: {fileID: 2008683595}
   avatar: {fileID: 1202038640}
@@ -2804,7 +2804,7 @@ MonoBehaviour:
   playerType: 0
   currentHp: 100
   maxHp: 100
-  attack: 15
+  attackPower: 30
   defend: 20
   overHeadText: {fileID: 1797227524}
   avatar: {fileID: 2077691178}
@@ -6822,7 +6822,7 @@ MonoBehaviour:
   playerType: 1
   currentHp: 100
   maxHp: 100
-  attack: 15
+  attackPower: 36
   defend: 15
   overHeadText: {fileID: 719312823}
   avatar: {fileID: 940201487}
@@ -7340,8 +7340,8 @@ MonoBehaviour:
   playerType: 2
   currentHp: 100
   maxHp: 100
-  attack: 20
-  defend: 15
+  attackPower: 40
+  defend: 12
   overHeadText: {fileID: 1438282462}
   avatar: {fileID: 1021515171}
   nameText: {fileID: 174013745}

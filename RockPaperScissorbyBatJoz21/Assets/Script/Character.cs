@@ -10,7 +10,7 @@ public class Character : MonoBehaviour
     [SerializeField] CharacterType playerType;
     [SerializeField] int currentHp;
     [SerializeField] int maxHp;
-    [SerializeField] int attack;
+    [SerializeField] int attackPower;
     [SerializeField] int defend;
     [SerializeField] TMP_Text overHeadText;
     [SerializeField] Image avatar;
@@ -21,19 +21,29 @@ public class Character : MonoBehaviour
     [SerializeField] Button button;
 
     public Button Button { get => button; }
+    public CharacterType PlayerType { get => playerType; }
+    public int AttackPower { get => attackPower; }
+    public int CurrentHp { get => currentHp; }
 
     void Start()
     {
         overHeadText.text = playerName;
         nameText.text = playerName;
         typeText.text = playerType.ToString();
-        healthBar.fillAmount = (float) currentHp / (float) maxHp;
-        hpText.text = currentHp + "/" + maxHp;
+        UpdateHPGUI();
         button.interactable = false;
     }
 
-    void Update()
+    public void ChangeHP(int amount)
     {
+        currentHp += -(amount - defend);
+        currentHp = Mathf.Clamp(currentHp, 0, maxHp);
+        UpdateHPGUI();
+    }
 
+    private void UpdateHPGUI()
+    {
+        healthBar.fillAmount = (float)currentHp / (float)maxHp;
+        hpText.text = currentHp + "/" + maxHp;
     }
 }

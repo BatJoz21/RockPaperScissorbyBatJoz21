@@ -14,6 +14,11 @@ public class Player : MonoBehaviour
 
     public Character SelectedCharacter { get => selectedCharacter; }
 
+    void Start()
+    {
+        
+    }
+
     public void Prepare()
     {
         selectedCharacter = null;
@@ -35,11 +40,38 @@ public class Player : MonoBehaviour
     Vector3 direction = Vector3.zero;
     public void Attack()
     {
-        selectedCharacter.transform.DOMove(atkPosition.position, 1f).SetEase(Ease.Linear);
+        selectedCharacter.transform
+            .DOMove(atkPosition.position, 1f)
+            .SetEase(Ease.Linear);
     }
 
     public bool IsAttacking()
     {
-        return true;
+        return DOTween.IsTweening(selectedCharacter.transform, true);
+    }
+
+    public void TakeDamage(int dmg)
+    {
+        selectedCharacter.ChangeHP(dmg);
+        var sprite = selectedCharacter.GetComponent<SpriteRenderer>();
+        sprite.DOColor(Color.red, 0.1f).SetLoops(4, LoopType.Yoyo);
+    }
+
+    public bool IsDamaging()
+    {
+        var sprite = selectedCharacter.GetComponent<SpriteRenderer>();
+        return DOTween.IsTweening(sprite);
+    }
+
+    public void Remove(Character character)
+    {
+        if (characterList.Contains(character) == false)
+        {
+            return;
+        }
+
+        character.Button.interactable = false;
+        character.gameObject.SetActive(false);
+        characterList.Remove(character);
     }
 }
