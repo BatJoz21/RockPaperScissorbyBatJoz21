@@ -1,23 +1,32 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {
     [SerializeField] Character selectedCharacter;
     [SerializeField] List<Character> characterList;
     [SerializeField] Transform atkPosition;
+    [SerializeField] bool isBot;
+    [SerializeField] UnityEvent onTakeDamage;
+    [SerializeField] UnityEvent onDeath;
 
     public Character SelectedCharacter { get => selectedCharacter; }
     public List<Character> CharacterList { get => characterList; }
 
-    void Start()
+    private void Start()
     {
-        
+        if (isBot)
+        {
+            foreach (var character in characterList)
+            {
+                character.Button.interactable = false;
+            }
+        }
     }
 
     public void Prepare()
@@ -32,9 +41,27 @@ public class Player : MonoBehaviour
 
     public void SetPlay(bool v)
     {
-        foreach (var character in characterList)
+        if (isBot)
         {
-            character.Button.interactable = v;
+            List<Character> weightedList = new List<Character>();
+            foreach (var character in characterList)
+            {
+                int ticket = Mathf.CeilToInt(((float)character.CurrentHp / (float)character.MaxHp) * 10);
+                for (int i = 0; i < ticket; i++)
+                {
+                    weightedList.Add(character);
+                }
+            }
+
+            int index = UnityEngine.Random.Range(0, weightedList.Count);
+            selectedCharacter = weightedList[index];
+        }
+        else
+        {
+            foreach (var character in characterList)
+            {
+                character.Button.interactable = v;
+            }
         }
     }
 
@@ -58,6 +85,7 @@ public class Player : MonoBehaviour
         selectedCharacter.ChangeHP(dmg);
         var sprite = selectedCharacter.GetComponent<SpriteRenderer>();
         sprite.DOColor(Color.red, 0.1f).SetLoops(4, LoopType.Yoyo);
+        onTakeDamage.Invoke();
     }
 
     public bool IsDamaging()
@@ -81,6 +109,7 @@ public class Player : MonoBehaviour
         }
         character.Button.interactable = false;
         character.gameObject.SetActive(false);
+        onDeath.Invoke();
         characterList.Remove(character);
     }
 
