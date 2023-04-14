@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     [SerializeField] Transform atkPosition;
 
     public Character SelectedCharacter { get => selectedCharacter; }
+    public List<Character> CharacterList { get => characterList; }
 
     void Start()
     {
@@ -41,12 +42,14 @@ public class Player : MonoBehaviour
     public void Attack()
     {
         selectedCharacter.transform
-            .DOMove(atkPosition.position, 1f)
+            .DOMove(atkPosition.position, 0.5f)
             .SetEase(Ease.Linear);
     }
 
     public bool IsAttacking()
     {
+        if (selectedCharacter == null)
+            return false;
         return DOTween.IsTweening(selectedCharacter.transform, true);
     }
 
@@ -59,6 +62,8 @@ public class Player : MonoBehaviour
 
     public bool IsDamaging()
     {
+        if (selectedCharacter == null)
+            return false;
         var sprite = selectedCharacter.GetComponent<SpriteRenderer>();
         return DOTween.IsTweening(sprite);
     }
@@ -70,8 +75,27 @@ public class Player : MonoBehaviour
             return;
         }
 
+        if (selectedCharacter == character)
+        {
+            selectedCharacter = null;
+        }
         character.Button.interactable = false;
         character.gameObject.SetActive(false);
         characterList.Remove(character);
+    }
+
+    public void Return()
+    {
+        selectedCharacter.transform
+            .DOMove(selectedCharacter.InitialPosition, 0.5f)
+            .SetEase(Ease.Linear);
+    }
+
+    public bool IsReturning()
+    {
+        if (selectedCharacter == null)
+            return false;
+
+        return DOTween.IsTweening(selectedCharacter.transform);
     }
 }

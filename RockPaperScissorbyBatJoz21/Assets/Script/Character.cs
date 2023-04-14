@@ -19,11 +19,13 @@ public class Character : MonoBehaviour
     [SerializeField] Image healthBar;
     [SerializeField] TMP_Text hpText;
     [SerializeField] Button button;
+    private Vector3 initialPosition;
 
     public Button Button { get => button; }
     public CharacterType PlayerType { get => playerType; }
     public int AttackPower { get => attackPower; }
     public int CurrentHp { get => currentHp; }
+    public Vector3 InitialPosition { get => initialPosition; }
 
     void Start()
     {
@@ -32,6 +34,7 @@ public class Character : MonoBehaviour
         typeText.text = playerType.ToString();
         UpdateHPGUI();
         button.interactable = false;
+        initialPosition = this.transform.position;
     }
 
     public void ChangeHP(int amount)
