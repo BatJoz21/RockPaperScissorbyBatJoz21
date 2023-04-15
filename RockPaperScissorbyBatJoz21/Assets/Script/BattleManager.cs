@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class BattleManager : MonoBehaviour
@@ -13,6 +14,8 @@ public class BattleManager : MonoBehaviour
 
     [SerializeField] GameObject battleResult;
     [SerializeField] private TMP_Text battleResultText;
+
+    [SerializeField] UnityEvent onWin;
 
     enum battleState
     {
@@ -117,10 +120,12 @@ public class BattleManager : MonoBehaviour
                         else if (player2.CharacterList.Count == 0)
                         {
                             battleResultText.text = "PLAYER 1 WIN!!!";
+                            onWin.Invoke();
                         }
                         else if (player1.CharacterList.Count == 0)
                         {
                             battleResultText.text = "PLAYER 2 WIN!!!";
+                            onWin.Invoke();
                         }
 
                         state = battleState.BattleOver;

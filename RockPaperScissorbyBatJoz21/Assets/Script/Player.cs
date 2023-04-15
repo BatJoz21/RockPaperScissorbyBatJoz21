@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     [SerializeField] List<Character> characterList;
     [SerializeField] Transform atkPosition;
     [SerializeField] bool isBot;
+    [SerializeField] UnityEvent onMove;
     [SerializeField] UnityEvent onTakeDamage;
     [SerializeField] UnityEvent onDeath;
 
@@ -71,6 +72,8 @@ public class Player : MonoBehaviour
         selectedCharacter.transform
             .DOMove(atkPosition.position, 0.5f)
             .SetEase(Ease.Linear);
+
+        onMove.Invoke();
     }
 
     public bool IsAttacking()
