@@ -16,6 +16,10 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource deathSfx;
     [SerializeField] AudioSource winSfx;
 
+    public bool IsMute { get => bgm.mute; }
+    public float BgmVolume { get => bgm.volume; }
+    public float SfxVolume { get => moveSfx.volume; }
+
     private void Start()
     {
         if (bgmInstance != null)
@@ -122,5 +126,27 @@ public class AudioManager : MonoBehaviour
 
         winSfx.clip = clip;
         winSfx.Play();
+    }
+
+    public void SetMute(bool v)
+    {
+        bgm.mute = v;
+        moveSfx.mute = v;
+        damageSfx.mute= v;
+        deathSfx.mute= v;
+        winSfx.mute = v;
+    }
+
+    public void SetVolumeBGM(float v)
+    {
+        bgm.volume = v;
+    }
+
+    public void SetVolumeSFX(float v)
+    {
+        moveSfx.volume = v;
+        damageSfx.volume = v;
+        deathSfx.volume = v;
+        winSfx.volume = v;
     }
 }

@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    [SerializeField] private GameObject optionsMenu;
+
     public void Play()
     {
         SceneManager.LoadScene("Battle");
@@ -12,7 +14,12 @@ public class MainMenu : MonoBehaviour
 
     public void Option()
     {
+        optionsMenu.SetActive(true);
+    }
 
+    public void exitOption()
+    {
+        optionsMenu.SetActive(false);
     }
 
     public void Credits()
