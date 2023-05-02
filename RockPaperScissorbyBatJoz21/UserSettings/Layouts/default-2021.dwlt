@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 772.8
   m_ShowMode: 4
-  m_Title: Console
+  m_Title: Project
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 371}
   m_MaxSize: {x: 10000, y: 10000}
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 32
+  controlID: 72
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ConsoleWindow
+  m_Name: ProjectBrowser
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -120,14 +120,14 @@ MonoBehaviour:
     y: 428
     width: 1172.8
     height: 294.8
-  m_MinSize: {x: 101, y: 121}
-  m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 17}
+  m_MinSize: {x: 231, y: 271}
+  m_MaxSize: {x: 10001, y: 10021}
+  m_ActualView: {fileID: 12}
   m_Panes:
   - {fileID: 12}
   - {fileID: 17}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 33
+  controlID: 73
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 34
+  controlID: 74
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -317,22 +317,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes
+  - Assets
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\UnityProject\RockPaperScissorbyBatJoz21\RockPaperScissorbyBatJoz21
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: dc5e0000
-    m_LastClickedID: 24284
-    m_ExpandedIDs: 00000000cc5e0000d45e000072710000bc71000000ca9a3b
+    m_SelectedIDs: 8e5c0000
+    m_LastClickedID: 23694
+    m_ExpandedIDs: 000000008e5c00009e5c0000a05c0000ba5c000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -360,7 +360,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000cc5e0000
+    m_ExpandedIDs: 000000008e5c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -490,7 +490,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 0ef4feff5ef4feff76f5feffb8f6feff00f8feff18f9feff0402ffffd006ffffa80cffffc416ffffc61affffb443ffff565fffff2261ffff8466ffff7a6bffffb470ffff6a72ffff2475ffff3c78ffff727affff3298ffff52a0ffffcca2ffffb2a4ffff72a7fffff6a9ffff36bcffff38f0fffffaf3ffffb2f5ffffdef7ffff566b0000386c0000446c00009aa80000caa800000ca9000046be000050be0000bec20000eac2000044c300005ec30000c2c30000eac3000062c40000c0c40000d8c4000042c5000028fb00007afb000050fc00006cfc0000cafc0000cefd0000680301007e030100ba0301006004010090040100ac0401000a0501000e060100581b0100881b0100c01b0100ca1b0100c4290100e8290100f0290100022a0100182a01004a2a0100542a0100642a0100c82a0100f02a0100fa2a01002a2b0100462b0100622b0100682b0100a42b0100c62b0100de2b0100e82b01003e2c0100482c01005e2c0100a82c0100ec72010056860100
+      m_ExpandedIDs: eeedffff3eeeffff56efffff98f0ffffdaf1fffff2f2ffffbef6ffff32fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -772,9 +772,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 972.03296, y: 540.14185, z: -16.79226}
+    m_Target: {x: 3.450712, y: -0.31354964, z: -16.167057}
     speed: 2
-    m_Value: {x: 972.03296, y: 540.14185, z: -16.79226}
+    m_Value: {x: 3.450712, y: -0.31354964, z: -16.167057}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -825,9 +825,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 561.4674
+    m_Target: 9.324481
     speed: 2
-    m_Value: 561.4674
+    m_Value: 9.324481
   m_Ortho:
     m_Target: 1
     speed: 2
